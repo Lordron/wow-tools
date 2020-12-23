@@ -58,12 +58,12 @@ namespace UpdateFieldCodeGenerator.Formats
             if (_create)
             {
                 if (_isRoot)
-                    _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadCreate{structureName}(Packet packet, UpdateFieldFlag flags, params object[] indexes)");
+                    _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadCreate{structureName}(Packet packet, UpdateFieldFlag flags)");
                 else
-                    _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadCreate{structureName}(Packet packet, params object[] indexes)");
+                    _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadCreate{structureName}(Packet packet)");
             }
             else
-                _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadUpdate{structureName}(Packet packet, I{structureName} existingData, params object[] indexes)");
+                _source.WriteLine($"{GetIndent()}public {methodType} I{structureName} ReadUpdate{structureName}(Packet packet, I{structureName} existingData)");
 
             _source.WriteLine($"{GetIndent()}{{");
             _indent = 3;
@@ -317,7 +317,7 @@ namespace UpdateFieldCodeGenerator.Formats
             _fieldWrites.Add((name, true, (pcf) =>
             {
                 WriteControlBlocks(_source, flowControl, pcf);
-                _source.WriteLine($"{GetIndent()}var has{name} = packet.ReadBit(\"Has{name}\", indexes);");
+                _source.WriteLine($"{GetIndent()}var has{name} = packet.ReadBit(\"Has{name}\");");
                 _indent = 3;
                 return flowControl;
             }
@@ -348,7 +348,7 @@ namespace UpdateFieldCodeGenerator.Formats
             _fieldWrites.Add((name, true, (pcf) =>
             {
                 WriteControlBlocks(_source, flowControl, pcf);
-                _source.WriteLine($"{GetIndent()}var has{name} = packet.ReadBit(\"Has{name}\", indexes);");
+                _source.WriteLine($"{GetIndent()}var has{name} = packet.ReadBit(\"Has{name}\");");
                 _indent = 3;
                 return flowControl;
             }
@@ -428,66 +428,66 @@ namespace UpdateFieldCodeGenerator.Formats
             if (name.EndsWith("is_initialized()"))
             {
                 outputFieldName = outputFieldName.Substring(0, outputFieldName.Length - 17);
-                _source.WriteLine($"var has{outputFieldName} = packet.ReadBit(\"Has{outputFieldName}\", indexes);");
+                _source.WriteLine($"var has{outputFieldName} = packet.ReadBit(\"Has{outputFieldName}\");");
                 return;
             }
 
             switch (Type.GetTypeCode(type))
             {
                 case TypeCode.Object:
-                    if (type == typeof(WowGuid))
-                        _source.WriteLine($"data.{outputFieldName} = packet.ReadPackedGuid128(\"{name}\", indexes{nextIndex});");
+                    if (type == typeof(WoWGuid))
+                        _source.WriteLine($"data.{outputFieldName} = packet.ReadPackedGuid128();");
                     else if (type == typeof(Bits))
-                        _source.WriteLine($"data.{outputFieldName} = packet.ReadBits(\"{name}\", {bitSize}, indexes{nextIndex});");
+                        _source.WriteLine($"data.{outputFieldName} = packet.UnalignedReadInt({bitSize});");
                     else if (type == typeof(Vector2))
-                        _source.WriteLine($"data.{outputFieldName} = packet.ReadVector2(\"{name}\", indexes{nextIndex});");
+                        _source.WriteLine($"data.{outputFieldName} = packet.ReadVector2();");
                     else if (type == typeof(Quaternion))
-                        _source.WriteLine($"data.{outputFieldName} = packet.ReadQuaternion(\"{name}\", indexes{nextIndex});");
+                        _source.WriteLine($"data.{outputFieldName} = packet.ReadQuaternion();");
                     else if (_create)
-                        _source.WriteLine($"data.{outputFieldName} = ReadCreate{RenameType(type)}(packet, indexes, \"{name}\"{nextIndex});");
+                        _source.WriteLine($"data.{outputFieldName} = ReadCreate{RenameType(type)}(packet);");
                     else
                     {
                         if (_dynamicChangesMaskTypes.Contains(type.Name))
                         {
                             _source.WriteLine($"if (no{RenameType(type.Name)}ChangesMask)");
-                            _source.WriteLine($"{GetIndent()}    data.{outputFieldName} = ReadCreate{RenameType(type)}(packet, indexes, \"{name}\"{nextIndex});");
+                            _source.WriteLine($"{GetIndent()}    data.{outputFieldName} = ReadCreate{RenameType(type)}(packet);");
                             _source.WriteLine($"{GetIndent()}else");
-                            _source.WriteLine($"{GetIndent()}    data.{outputFieldName} = ReadUpdate{RenameType(type)}(packet, data.{outputFieldName} as {RenameType(type)}, indexes, \"{name}\"{nextIndex});");
+                            _source.WriteLine($"{GetIndent()}    data.{outputFieldName} = ReadUpdate{RenameType(type)}(packet, data.{outputFieldName} as {RenameType(type)});");
 
                         }
                         else
-                            _source.WriteLine($"data.{outputFieldName} = ReadUpdate{RenameType(type)}(packet, data.{outputFieldName} as {RenameType(type)}, indexes, \"{name}\"{nextIndex});");
+                            _source.WriteLine($"data.{outputFieldName} = ReadUpdate{RenameType(type)}(packet, data.{outputFieldName} as {RenameType(type)});");
                     }
                     break;
                 case TypeCode.Boolean:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadBit(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadBit();");
                     break;
                 case TypeCode.SByte:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadSByte(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadSByte();");
                     break;
                 case TypeCode.Byte:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadByte(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadByte();");
                     break;
                 case TypeCode.Int16:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt16(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt16();");
                     break;
                 case TypeCode.UInt16:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt16(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt16();");
                     break;
                 case TypeCode.Int32:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt32(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt32();");
                     break;
                 case TypeCode.UInt32:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt32(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt32();");
                     break;
                 case TypeCode.Int64:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt64(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadInt64();");
                     break;
                 case TypeCode.UInt64:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt64(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadUInt64();");
                     break;
                 case TypeCode.Single:
-                    _source.WriteLine($"data.{outputFieldName} = packet.ReadSingle(\"{name}\", indexes{nextIndex});");
+                    _source.WriteLine($"data.{outputFieldName} = packet.ReadSingle();");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type));

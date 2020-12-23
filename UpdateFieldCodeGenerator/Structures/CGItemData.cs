@@ -9,10 +9,10 @@ namespace UpdateFieldCodeGenerator.Structures
 
         public static readonly UpdateField m_bonusListIDsSize = new UpdateField(typeof(BlzVectorField<int>), UpdateFieldFlag.None, typeof(CGItemData).GetField("m_bonusListIDs", BindingFlags.Static | BindingFlags.Public));
         public static readonly UpdateField m_bonusListIDs = new UpdateField(typeof(BlzVectorField<int>), UpdateFieldFlag.None);
-        public static readonly UpdateField m_owner = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_containedIn = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_creator = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_giftCreator = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_owner = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_containedIn = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_creator = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_giftCreator = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField m_stackCount = new UpdateField(typeof(uint), UpdateFieldFlag.Owner);
         public static readonly UpdateField m_expiration = new UpdateField(typeof(uint), UpdateFieldFlag.Owner);
         public static readonly UpdateField m_spellCharges = new UpdateField(typeof(int[]), UpdateFieldFlag.Owner, 5);

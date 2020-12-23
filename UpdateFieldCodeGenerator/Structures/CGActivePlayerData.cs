@@ -5,9 +5,9 @@
     {
         public static readonly ObjectType ObjectType = ObjectType.ActivePlayer;
 
-        public static readonly UpdateField invSlots = new UpdateField(typeof(WowGuid[]), UpdateFieldFlag.None, 199);
-        public static readonly UpdateField farsightObject = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField summonedBattlePetGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField invSlots = new UpdateField(typeof(WoWGuid[]), UpdateFieldFlag.None, 199);
+        public static readonly UpdateField farsightObject = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField summonedBattlePetGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField knownTitles = new UpdateField(typeof(DynamicUpdateField<ulong>), UpdateFieldFlag.None);
         public static readonly UpdateField coinage = new UpdateField(typeof(ulong), UpdateFieldFlag.None);
         public static readonly UpdateField XP = new UpdateField(typeof(int), UpdateFieldFlag.None);

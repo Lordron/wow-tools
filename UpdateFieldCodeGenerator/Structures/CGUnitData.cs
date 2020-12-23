@@ -15,16 +15,16 @@ namespace UpdateFieldCodeGenerator.Structures
         public static readonly UpdateField stateWorldEffectIDsSize = new UpdateField(typeof(BlzVectorField<uint>), UpdateFieldFlag.None, typeof(CGUnitData).GetField("stateWorldEffectIDs", BindingFlags.Static | BindingFlags.Public));
         public static readonly UpdateField stateWorldEffectsQuestObjectiveID = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField stateWorldEffectIDs = new UpdateField(typeof(BlzVectorField<uint>), UpdateFieldFlag.None);
-        public static readonly UpdateField charm = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField summon = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField critter = new UpdateField(typeof(WowGuid), UpdateFieldFlag.Owner);
-        public static readonly UpdateField charmedBy = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField summonedBy = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField createdBy = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField demonCreator = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField lookAtControllerTarget = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField target = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField battlePetCompanionGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField charm = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField summon = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField critter = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.Owner);
+        public static readonly UpdateField charmedBy = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField summonedBy = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField createdBy = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField demonCreator = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField lookAtControllerTarget = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField target = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField battlePetCompanionGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField battlePetDBID = new UpdateField(typeof(ulong), UpdateFieldFlag.None);
         public static readonly UpdateField channelData = new UpdateField(typeof(JamMirrorUnitChannel_C), UpdateFieldFlag.None);
         public static readonly UpdateField summonedByHomeRealm = new UpdateField(typeof(uint), UpdateFieldFlag.None);
@@ -128,10 +128,10 @@ namespace UpdateFieldCodeGenerator.Structures
         public static readonly UpdateField looksLikeCreatureID = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField lookAtControllerID = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField taxiNodesID = new UpdateField(typeof(int), UpdateFieldFlag.None);
-        public static readonly UpdateField guildGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField guildGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField passiveSpells = new UpdateField(typeof(DynamicUpdateField<JamMirrorPassiveSpellHistory_C>), UpdateFieldFlag.None);
         public static readonly UpdateField worldEffects = new UpdateField(typeof(DynamicUpdateField<int>), UpdateFieldFlag.None);
-        public static readonly UpdateField channelObjects = new UpdateField(typeof(DynamicUpdateField<WowGuid>), UpdateFieldFlag.None);
-        public static readonly UpdateField skinningOwnerGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField channelObjects = new UpdateField(typeof(DynamicUpdateField<WoWGuid>), UpdateFieldFlag.None);
+        public static readonly UpdateField skinningOwnerGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
     }
 }

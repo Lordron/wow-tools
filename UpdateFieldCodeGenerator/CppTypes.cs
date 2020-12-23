@@ -32,7 +32,7 @@ namespace UpdateFieldCodeGenerator
                 { typeof(double), typeof(double) },
                 { typeof(string), CreateType("std::string") },
                 { typeof(BlzVectorField<>), CreateType("std::vector", "T") },
-                { typeof(WowGuid), CreateType("ObjectGuid") },
+                { typeof(WoWGuid), CreateType("ObjectGuid") },
                 { typeof(Bits), CreateType("uint32") },
                 { typeof(Vector2), CreateType("TaggedPosition", "Tag").MakeGenericType(CreateType("Position::XY")) },
                 { typeof(Quaternion), CreateType("QuaternionData") }

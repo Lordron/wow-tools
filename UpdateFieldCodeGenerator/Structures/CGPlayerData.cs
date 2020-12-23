@@ -5,9 +5,9 @@
     {
         public static readonly ObjectType ObjectType = ObjectType.Player;
 
-        public static readonly UpdateField duelArbiter = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField wowAccount = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField lootTargetGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField duelArbiter = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField wowAccount = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField lootTargetGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField playerFlags = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField playerFlagsEx = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField guildRankID = new UpdateField(typeof(uint), UpdateFieldFlag.None);
@@ -41,7 +41,7 @@
         public static readonly UpdateField field_B0 = new UpdateField(typeof(int), UpdateFieldFlag.None); // these 2 are both quest ids and are used in condition to trigger PlayerCliQuestGiverAcceptQuest
         public static readonly UpdateField field_B4 = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField hasQuestSession = new UpdateField(typeof(bool), UpdateFieldFlag.PartyMember);
-        public static readonly UpdateField field_F8 = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField field_F8 = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField field_108 = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField hasLevelLink = new UpdateField(typeof(bool), UpdateFieldFlag.None);
     }

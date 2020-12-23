@@ -15,8 +15,8 @@ namespace UpdateFieldCodeGenerator.Structures
         public static readonly UpdateField m_stateWorldEffectIDsSize = new UpdateField(typeof(BlzVectorField<int>), UpdateFieldFlag.None, typeof(CGGameObjectData).GetField("m_stateWorldEffectIDs", BindingFlags.Static | BindingFlags.Public));
         public static readonly UpdateField m_stateWorldEffectsQuestObjectiveID = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField m_stateWorldEffectIDs = new UpdateField(typeof(BlzVectorField<uint>), UpdateFieldFlag.None);
-        public static readonly UpdateField m_createdBy = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_guildGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_createdBy = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_guildGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField m_flags = new UpdateField(typeof(uint), UpdateFieldFlag.None, customFlag: CustomUpdateFieldFlag.ViewerDependent);
         public static readonly UpdateField m_parentRotation = new UpdateField(typeof(Quaternion), UpdateFieldFlag.None);
         public static readonly UpdateField m_factionTemplate = new UpdateField(typeof(int), UpdateFieldFlag.None);

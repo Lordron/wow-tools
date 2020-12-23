@@ -5,7 +5,7 @@
     {
         public static readonly ObjectType ObjectType = ObjectType.DynamicObject;
 
-        public static readonly UpdateField m_caster = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_caster = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField m_spellXSpellVisualID = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField m_spellID = new UpdateField(typeof(int), UpdateFieldFlag.None);
         public static readonly UpdateField m_radius = new UpdateField(typeof(float), UpdateFieldFlag.None);

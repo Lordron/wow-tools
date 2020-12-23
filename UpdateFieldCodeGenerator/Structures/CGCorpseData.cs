@@ -6,9 +6,9 @@
         public static readonly ObjectType ObjectType = ObjectType.Corpse;
 
         public static readonly UpdateField m_dynamicFlags = new UpdateField(typeof(uint), UpdateFieldFlag.None);
-        public static readonly UpdateField m_owner = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_partyGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
-        public static readonly UpdateField m_guildGUID = new UpdateField(typeof(WowGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_owner = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_partyGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
+        public static readonly UpdateField m_guildGUID = new UpdateField(typeof(WoWGuid), UpdateFieldFlag.None);
         public static readonly UpdateField m_displayID = new UpdateField(typeof(uint), UpdateFieldFlag.None);
         public static readonly UpdateField m_items = new UpdateField(typeof(uint[]), UpdateFieldFlag.None, 19);
         public static readonly UpdateField m_unused = new UpdateField(typeof(byte), UpdateFieldFlag.None);

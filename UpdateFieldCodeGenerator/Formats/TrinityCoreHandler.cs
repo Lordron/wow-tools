@@ -620,7 +620,7 @@ namespace UpdateFieldCodeGenerator.Formats
             switch (Type.GetTypeCode(type))
             {
                 case TypeCode.Object:
-                    if (type == typeof(WowGuid))
+                    if (type == typeof(WoWGuid))
                         _source.WriteLine($"data << {name};");
                     else if (type == typeof(Bits))
                         _source.WriteLine($"data.WriteBits({name}, {bitSize});");
